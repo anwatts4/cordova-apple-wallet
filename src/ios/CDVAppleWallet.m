@@ -378,6 +378,16 @@ typedef void (^completedPaymentProcessHandler)(PKAddPaymentPassRequest *request)
     return commandToSend;
 }
 
+// Plugin Method - open manual pass add
+- (void) openManualPassAdd:(CDVInvokedUrlCommand *)command
+{
+    PKPassLibrary *passLib = [[PKPassLibrary alloc] init];
+    [passLib openPaymentSetup];
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"success"];
+    [pluginResult setKeepCallback:[NSNumber numberWithBool:YES]];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
 @end
 
 // in this case, it is handling if it found 2 watches (more than 1 remote device) 
