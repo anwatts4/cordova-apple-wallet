@@ -148,7 +148,7 @@ var AppleWallet = {
      * @description a function with no parameters that will open the Apple Wallet app to manually add a pass
      * @returns {Promise<String>} - A string value either 'success' or 'error'
      */
-    openManualPassAdd: function(encCardData, successCallback, errorCallback) {
+    openManualPassAdd: function(successCallback, errorCallback) {
         return new Promise(function(resolve, reject) {
             exec(function(message) {
                 executeCallback(successCallback, message);
