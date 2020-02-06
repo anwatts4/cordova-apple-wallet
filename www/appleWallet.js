@@ -142,6 +142,23 @@ var AppleWallet = {
             }, PLUGIN_NAME, 'completeAddPaymentPass', [encCardData]);
         });
     },
+	
+    /**
+     * @function openManualPassAdd
+     * @description a function with no parameters that will open the Apple Wallet app to manually add a pass
+     * @returns {Promise<String>} - A string value either 'success' or 'error'
+     */
+    openManualPassAdd: function(encCardData, successCallback, errorCallback) {
+        return new Promise(function(resolve, reject) {
+            exec(function(message) {
+                executeCallback(successCallback, message);
+                resolve(message);
+            }, function(message) {
+                executeCallback(errorCallback, message);
+                reject(message);
+            }, PLUGIN_NAME, 'openManualPassAdd', []);
+        });
+    },
 }
 
 module.exports = AppleWallet;
