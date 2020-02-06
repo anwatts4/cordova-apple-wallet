@@ -23,6 +23,8 @@
 - (void) startAddPaymentPass:(CDVInvokedUrlCommand*)command;
 - (void) completeAddPaymentPass:(CDVInvokedUrlCommand*)command;
 
+- (void) openManualPassAdd:(CDVInvokedUrlCommand*)command;
+
 
 @end
 
